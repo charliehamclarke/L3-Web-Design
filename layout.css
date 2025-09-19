@@ -1,0 +1,164 @@
+/* =========================================
+   Fashion Showcase — layout.css (site-wide)
+   ========================================= */
+
+/* ---- Base / Reset ---- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  color: #1a1a1a;
+  background: #111 url("../images/brick_bg.jpg") repeat;
+  background-size: 300px 300px; /* adjust tile size */
+  font-family: "Lato", "Ubuntu", system-ui, sans-serif;
+  line-height: 1.55;
+  font-size: 16px;
+}
+
+
+/* ---- Links ---- */
+a { color: #0f3c91; text-decoration: none; }
+a:hover { color: #ff1744; }
+
+/* ---- Wrapper (page width) ---- */
+.wrapper {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 18px 40px;
+}
+
+/* =========================================
+   Header: graffiti logo + navigation area
+   ========================================= */
+.header { margin: 0; }
+
+/* Graffiti title block */
+.top-title {
+  text-align: center;
+  margin: 26px 0 10px;
+}
+
+.graffiti-title {
+  display: block;
+  margin: 0 auto 18px;
+  width: 560px;          /* control logo width here */
+  max-width: 92%;        /* responsive on small screens */
+  height: auto;
+}
+
+/* Center the nav line under the logo without
+   overriding your navigation.css behavior */
+.menu-header { text-align: center; }
+.menu-content { display: inline-block; }
+
+/* =========================================
+   Content boxes
+   ========================================= */
+.box.main {
+  background: rgba(255, 255, 255, 0.9); /* translucent white panels */
+  border-radius: 6px;
+  padding: 22px;
+}
+
+
+.box.main h1,
+.box.main h2,
+.box.main h3 {
+  margin: 0 0 14px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.box.main p { margin: 0 0 14px; }
+
+/* Lists inside content */
+.box.main ul {
+  margin: 8px 0 16px 20px;
+}
+.box.main li { margin: 4px 0; }
+
+/* =========================================
+   Footer
+   ========================================= */
+.box.footer {
+  text-align: right;
+  color: #333;
+  background: transparent;
+  border: none;
+  padding: 8px 0 0;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* =========================================
+   Forms (contact page)
+   ========================================= */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+  background: #fff;
+  font: inherit;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.contact-form textarea { resize: vertical; }
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #7aa7ff;
+  box-shadow: 0 0 0 3px rgba(122,167,255,.25);
+}
+
+.contact-form button[type="submit"] {
+  margin-top: 6px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #0f3c91;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, background .2s;
+}
+.contact-form button[type="submit"]:hover {
+  background: #ff1744;
+  box-shadow: 0 6px 14px rgba(0,0,0,.18);
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   Utilities
+   ========================================= */
+.responsive { max-width: 100%; height: auto; display: block; }
+.center     { text-align: center; }
+.m-0        { margin: 0 !important; }
+.mt-8       { margin-top: 8px !important; }
+.mt-16      { margin-top: 16px !important; }
+.mt-24      { margin-top: 24px !important; }
+
+/* =========================================
+   Responsive tweaks
+   ========================================= */
+@media (max-width: 900px) {
+  .graffiti-title { width: 480px; }
+  .box.main { padding: 18px; }
+}
+
+@media (max-width: 600px) {
+  .graffiti-title { width: 380px; margin-bottom: 14px; }
+  .wrapper { padding: 0 14px 28px; }
+  body { font-size: 15px; }
+}
