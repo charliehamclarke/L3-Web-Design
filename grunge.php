@@ -19,6 +19,7 @@
 
 
     <?php
+        // Renders images from /images/grunge/ using scatter/polaroid layout
         make_gallery("grunge", "scatter");
     ?>
 </div>

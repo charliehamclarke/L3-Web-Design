@@ -68,7 +68,6 @@ a:hover { color: #ff1744; }
   padding: 22px;
 }
 
-
 .box.main h1,
 .box.main h2,
 .box.main h3 {
@@ -101,6 +100,14 @@ a:hover { color: #ff1744; }
 /* =========================================
    Forms (contact page)
    ========================================= */
+
+/* Make the whole form responsive */
+.contact-form {
+  max-width: 600px;   /* limit form width on large screens */
+  margin: 0 auto;     /* center horizontally */
+  width: 100%;        /* allow it to shrink on small screens */
+}
+
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form textarea {
@@ -133,11 +140,49 @@ a:hover { color: #ff1744; }
   cursor: pointer;
   transition: transform .12s ease, box-shadow .12s ease, background .2s;
 }
+
 .contact-form button[type="submit"]:hover {
   background: #ff1744;
   box-shadow: 0 6px 14px rgba(0,0,0,.18);
   transform: translateY(-1px);
 }
+
+/* Responsive tweaks for form fields */
+@media (max-width: 600px) {
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea,
+  .contact-form button[type="submit"] {
+    font-size: 15px;   /* slightly smaller text */
+    padding: 8px 10px; /* reduce padding so they fit */
+  }
+}
+
+/* =========================================
+   Google Form embed (contact page)
+   ========================================= */
+.contact-embed {
+  width: 100%;
+  max-width: 900px;     /* cap width on desktop */
+  margin: 0 auto;       /* center it */
+}
+
+.contact-embed iframe {
+  display: block;
+  width: 100% !important;  /* override fixed Google width */
+  max-width: 100% !important;
+  border: 0;
+  height: 1100px;          /* give space for the form */
+}
+
+/* Tweak height for smaller devices */
+@media (max-width: 900px) {
+  .contact-embed iframe { height: 1000px; }
+}
+@media (max-width: 600px) {
+  .contact-embed iframe { height: 900px; }
+}
+
 
 /* =========================================
    Utilities
@@ -162,3 +207,5 @@ a:hover { color: #ff1744; }
   .wrapper { padding: 0 14px 28px; }
   body { font-size: 15px; }
 }
+
+/* End of layout.css */

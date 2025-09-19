@@ -1,13 +1,18 @@
 /* ========= KILL OLD RULES / LEGACY ========= */
-div.gallery, div.gallery:hover { border: none; }
+div.gallery,
+div.gallery:hover { border: none; }
+
 div.desc { padding: 0; text-align: initial; }
+
 .responsive { float: none; width: auto; padding: 0; }
+
 .clearfix:after { content: ""; display: block; clear: both; }
+
 .gallery img { width: auto; height: auto; } /* neutralize old 100% rule */
 
-/* ========= POLAROID SCATTER THUMBNAILS ========= */
 
-.gallery.scatter{
+/* ========= POLAROID SCATTER THUMBNAILS ========= */
+.gallery.scatter {
   max-width: 1100px;
   margin: 22px auto;
   display: flex;
@@ -16,86 +21,84 @@ div.desc { padding: 0; text-align: initial; }
   gap: 18px;
 }
 
-.gallery.scatter .item{
-  background:#fff;
-  padding:10px;
-  border-radius:8px;
-  box-shadow:0 8px 18px rgba(0,0,0,.20);
+.gallery.scatter .item {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.20);
   transition: transform .2s, box-shadow .2s;
-  width:240px;           /* fixed card size */
-  height:300px;
+  width: 240px;       /* fixed card size */
+  height: 300px;
 }
 
-.gallery.scatter .item > a{
-  display:block;
-  width:100%;
-  height:100%;
+.gallery.scatter .item > a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-.gallery.scatter .item img{
-  width:100% !important;
-  height:100% !important;
-  object-fit:cover !important;   /* crop neatly to the card */
-  border-radius:4px;
-  display:block;
+.gallery.scatter .item img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;  /* crop neatly to the card */
+  border-radius: 4px;
+  display: block;
 }
 
 /* tossed polaroid vibe */
-.gallery.scatter .item:nth-child(6n+1){ transform:rotate(-2deg); }
-.gallery.scatter .item:nth-child(6n+2){ transform:rotate(2deg); }
-.gallery.scatter .item:nth-child(6n+3){ transform:rotate(-1deg); }
-.gallery.scatter .item:nth-child(6n+4){ transform:rotate(1.5deg); }
-.gallery.scatter .item:nth-child(6n+5){ transform:rotate(-.5deg); }
-.gallery.scatter .item:nth-child(6n+6){ transform:rotate(1deg); }
+.gallery.scatter .item:nth-child(6n+1) { transform: rotate(-2deg); }
+.gallery.scatter .item:nth-child(6n+2) { transform: rotate(2deg); }
+.gallery.scatter .item:nth-child(6n+3) { transform: rotate(-1deg); }
+.gallery.scatter .item:nth-child(6n+4) { transform: rotate(1.5deg); }
+.gallery.scatter .item:nth-child(6n+5) { transform: rotate(-.5deg); }
+.gallery.scatter .item:nth-child(6n+6) { transform: rotate(1deg); }
 
-.gallery.scatter .item:hover{
-  transform:rotate(0deg) scale(1.05);
-  box-shadow:0 16px 30px rgba(0,0,0,.30);
+.gallery.scatter .item:hover {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 16px 30px rgba(0,0,0,.30);
 }
 
 /* block any lingering flex rules from earlier experiments */
-.gallery.scatter a{ flex:initial !important; max-width:none !important; }
+.gallery.scatter a { flex: initial !important; max-width: none !important; }
+
 
 /* ========= SIMPLELIGHTBOX (CENTERED, NOT FULLSCREEN) ========= */
+.sl-wrapper { background: rgba(0,0,0,.92) !important; }
 
-.sl-wrapper{
-  background:rgba(0,0,0,.92) !important;
+.sl-wrapper .sl-image {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
 }
 
-.sl-wrapper .sl-image{
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  height:100% !important;
-}
-
-.sl-wrapper .sl-image img{
-  position:static !important;
-  margin:0 auto !important;
-
-  width:auto !important;
-  height:auto !important;
-  max-width:90vw !important;   /* margin on sides */
-  max-height:88vh !important;  /* margin top/bottom */
-  object-fit:contain !important;
-
-  border-radius:8px !important;
-  box-shadow:0 8px 24px rgba(0,0,0,.55) !important;
+.sl-wrapper .sl-image img {
+  position: static !important;
+  margin: 0 auto !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 90vw !important;   /* margin on sides */
+  max-height: 88vh !important;  /* margin top/bottom */
+  object-fit: contain !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.55) !important;
 }
 
 .sl-wrapper .sl-counter,
 .sl-wrapper .sl-close,
-.sl-wrapper .sl-navigation button{
-  color:#fff !important;
-  text-shadow:0 1px 3px rgba(0,0,0,.6);
+.sl-wrapper .sl-navigation button {
+  color: #fff !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,.6);
 }
-/* --- SimpleLightbox: force true centering and kill left padding --- */
+
+/* --- SimpleLightbox: force true centering and kill left padding ---
+   NOTE: Next two blocks override earlier flex centering via grid + full-viewport sizing. */
 .sl-wrapper .sl-image {
   display: grid !important;
   place-items: center !important;   /* centers both axes */
   width: 100vw !important;
   height: 100vh !important;
-  padding: 0 !important;            /* remove plugin padding that pushes image */
+  padding: 0 !important;
   margin: 0 !important;
 }
 
@@ -104,25 +107,24 @@ div.desc { padding: 0; text-align: initial; }
   transform: none !important;
   left: auto !important;
   top: auto !important;
-
   max-width: 90vw !important;
   max-height: 88vh !important;
   width: auto !important;
   height: auto !important;
   object-fit: contain !important;
-
-  margin: 0 auto !important;        /* horizontal centering fallback */
+  margin: 0 auto !important;
   border-radius: 8px !important;
   box-shadow: 0 8px 24px rgba(0,0,0,.55) !important;
 }
 
-/* keep overlay dark & controls readable */
+/* keep overlay dark & controls readable (repeat of earlier styles; harmless) */
 .sl-wrapper { background: rgba(0,0,0,.92) !important; }
 .sl-wrapper .sl-counter,
 .sl-wrapper .sl-close,
-.sl-wrapper .sl-navigation button { color:#fff !important; }
+.sl-wrapper .sl-navigation button { color: #fff !important; }
 
-/* --- Force SimpleLightbox overlay above everything --- */
+/* --- Force SimpleLightbox overlay above everything ---
+   (repeat of overlay rule; increases z-index and fixes to viewport) */
 .sl-wrapper {
   position: fixed !important;
   top: 0;
@@ -130,20 +132,20 @@ div.desc { padding: 0; text-align: initial; }
   width: 100vw !important;
   height: 100vh !important;
   background: rgba(0,0,0,0.92) !important;
-  z-index: 9999 !important;   /* max priority */
+  z-index: 9999 !important;
 }
 
-/* Keep lightbox fixed above the site */
+/* Keep lightbox fixed above the site (later override; higher z-index) */
 .sl-wrapper {
   position: fixed !important;
   inset: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
-  z-index: 999999 !important;
+  z-index: 999999 !important;   /* final z-index */
   background: rgba(0,0,0,0.92) !important;
 }
 
-/* Center the image and cap size (already added, but keep here) */
+/* Center the image and cap size (already added, but kept here; duplicate) */
 .sl-wrapper .sl-image {
   display: grid !important;
   place-items: center !important;
@@ -157,7 +159,7 @@ div.desc { padding: 0; text-align: initial; }
   object-fit: contain !important;
 }
 
-/* 🔒 Disable page scrolling while lightbox is open */
+/* 🔒 Disable page scrolling while lightbox is open (modern :has) */
 html:has(.sl-wrapper),
 body:has(.sl-wrapper) {
   overflow: hidden !important;
@@ -166,12 +168,15 @@ body:has(.sl-wrapper) {
   overscroll-behavior: contain;
 }
 
-/* Slight vertical lift for images in lightbox */
+/* Slight vertical lift for images in lightbox
+   NOTE: This final block overrides the earlier "centered" grid and
+   reverts to flex with top alignment + padding. If you want *true center*,
+   delete this block (or the earlier grid block). */
 .sl-wrapper .sl-image {
   display: flex !important;
   justify-content: center !important;
   align-items: flex-start !important; /* stick to top */
-  padding-top: 5vh; /* add breathing space from the top */
+  padding-top: 5vh;                   /* breathing space from the top */
   height: 100% !important;
 }
 

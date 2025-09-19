@@ -1,23 +1,27 @@
+<!-- About Page Content -->
 <div class="box main">
-    <h2>About This Site</h2>
+  <h2>About Fashion Showcase</h2>
 
-    <p>
-        Welcome to the <strong>Creative Commons Showcase</strong>!  
-        This project demonstrates how to correctly use, attribute, and showcase
-        Creative Commons–licensed content. The galleries feature images of 
-        <em>Insects</em>, <em>Space</em>, and <em>People</em>, all shared under 
-        open licenses.
-    </p>
+  <p>
+    Welcome to the <strong>Fashion Showcase</strong>!  
+    This site was created to inspire and educate by presenting a variety of fashion
+    styles through curated galleries and background information. Our focus is on 
+    three key trends shaping today’s culture: <em>Streetwear</em>, <em>Athleisure</em>, 
+    and <em>Grunge</em>.
+  </p>
 
-    <p>
-        Creative Commons makes it easy for creators to share their work legally 
-        while giving others permission to reuse it.  
-        The aim of this site is educational — to help students, teachers, and 
-        creatives explore open licensing.
-    </p>
+  <p>
+    Each gallery highlights the history, cultural context, and aesthetics of its style.
+    Whether it’s the bold urban influence of streetwear, the comfortable versatility of
+    athleisure, or the raw edge of grunge, these styles represent more than clothing —
+    they reflect identity, creativity, and community.
+  </p>
 
-    <p>
-        This site was built as part of a learning project using PHP, HTML, CSS, 
-        and a sprinkle of JavaScript for interactivity.
-    </p>
+  <p>
+    The Fashion Showcase project was built using PHP for dynamic content, HTML and CSS 
+    for structure and design, and JavaScript for interactivity. It’s designed as a 
+    modern, student-friendly platform for exploring how fashion continues to influence 
+    and connect people around the world.
+  </p>
 </div>
+<!-- /About Page Content -->

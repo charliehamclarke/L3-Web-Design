@@ -1,116 +1,127 @@
-/* Base nav */
-ul, .dropdown {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
+/* =========================================
+   Navigation (menu bar + dropdown)
+   ========================================= */
+
+/* Base nav (nav-only UL; avoid styling content lists) */
+.menu-content > ul,
+.menu-content .dropdown {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex; /* horizontal main menu; dropdown will override to column */
 }
 
-ul li {
-    position: relative;
-}
+.menu-content ul li { position: relative; }
 
 /* Nav background strip */
 .menu-content {
-    background: rgba(0, 0, 0, 0.75); /* semi-transparent black bar */
-    padding: 10px 0;
-    border-radius: 6px; /* optional: soften edges */
-    text-align: center;
+  background: rgba(0, 0, 0, 0.75); /* semi-transparent black bar */
+  padding: 10px 0;
+  border-radius: 6px;              /* soften edges */
+  text-align: center;
 }
 
 /* Main nav links */
 .menu-content ul li a {
-    text-decoration: none;
-    padding: 12px 18px;
-    display: block;
-    font-weight: 700;
-    color: #ffcc00; /* yellow for nav */
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
-    transition: color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  padding: 12px 18px;
+  display: block;
+  font-weight: 700;
+  color: #ffcc00; /* yellow for nav */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .menu-content ul li a:hover {
-    color: #fff; /* white on hover */
-    transform: scale(1.05);
+  color: #fff; /* white on hover */
+  transform: scale(1.05);
 }
 
-/* Dropdown */
-.dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    flex-direction: column;
-    width: 180px;
-    background: rgba(0, 0, 0, 0.85);
-    border-radius: 6px;
-    padding: 5px 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 10;
+/* Dropdown (hidden by default) */
+.menu-content .dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  flex-direction: column;          /* stack dropdown items */
+  width: 180px;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 6px;
+  padding: 5px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
 }
 
-.dropdown li a {
-    display: block;
-    padding: 10px 15px;
-    color: #fff;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-    transition: all 0.3s ease;
+.menu-content .dropdown li a {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+  transition: all 0.3s ease;
 }
 
-.dropdown li a:hover {
-    background: #ffcc00;
-    color: #000;
-    border-radius: 4px;
+.menu-content .dropdown li a:hover {
+  background: #ffcc00;
+  color: #000;
+  border-radius: 4px;
 }
 
-/* Show dropdown on hover */
-ul li:hover .dropdown {
-    visibility: visible;
-    opacity: 1;
+/* Show dropdown on hover (scope to nav UL only) */
+.menu-content ul li:hover > .dropdown {
+  visibility: visible;
+  opacity: 1;
 }
 
-/* Responsive toggle */
+/* Responsive toggle (burger shows on small screens) */
 .fa-bars {
-    display: none;
+  display: none;
 }
 
-@media(max-width: 767px) {
-    ul {
-        flex-direction: column;
-        width: 100%;
-    }
-    .menu-content {
-        display: none;
-    }
-    .fa-bars {
-        display: inline-block;
-        cursor: pointer;
-    }
+@media (max-width: 767px) {
+  /* stack nav items vertically on mobile */
+  .menu-content > ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* hide menu; shown via JS toggle on .fa-bars click */
+  .menu-content { display: none; }
+
+  .fa-bars {
+    display: inline-block;
+    cursor: pointer;
+  }
 }
 
-/* Title styling */
+/* =========================================
+   Title styling above the nav (logo block)
+   ========================================= */
 .top-title {
-    text-align: center;
-    margin: 30px 0 10px;
+  text-align: center;
+  margin: 30px 0 10px;
 }
 
 .graffiti-title {
-    display: block;
-    margin: 0 auto 15px;
-    width: 550px;
-    max-width: 90%;
-    height: auto;
+  display: block;
+  margin: 0 auto 15px;
+  width: 550px;
+  max-width: 90%;
+  height: auto;
 }
 
-/* Normal page links (not nav) */
+/* =========================================
+   Normal page links (non-nav)
+   NOTE: These are global anchors; they will override layout.css
+   if nav.css is loaded after it. Keep if you want blue body links.
+   ========================================= */
 a {
-    color: #0066cc; /* standard blue */
-    text-decoration: underline;
+  color: #0066cc;            /* standard blue */
+  text-decoration: underline;
 }
 
 a:hover {
-    color: #003366; /* darker blue on hover */
+  color: #003366;            /* darker blue on hover */
 }

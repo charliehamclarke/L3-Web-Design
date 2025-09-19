@@ -20,7 +20,7 @@
 
 
     <?php
-        // Renders images from /images/athleisure/ using your scatter/polaroid layout
+        // Renders images from /images/athleisure/ using scatter/polaroid layout
         make_gallery('athleisure');
     ?>
 </div>
